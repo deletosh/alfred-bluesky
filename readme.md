@@ -20,7 +20,7 @@ A powerful Alfred workflow that lets you post to Bluesky directly from your Mac.
 
 ## Installation
 
-1. Download the latest `.alfredworkflow` file from the [releases page](https://github.com/yourusername/alfred-bluesky/releases)
+1. Download the latest `.alfredworkflow` file from the [releases page](https://github.com/deletosh/alfred-bluesky/releases)
 2. Double-click the downloaded file to install it in Alfred
 3. Follow the setup instructions below
 
