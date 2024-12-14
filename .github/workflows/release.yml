@@ -25,7 +25,12 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
 
       # Get version from package.json and create tag if it doesn't exist
       - name: Check and create tag
