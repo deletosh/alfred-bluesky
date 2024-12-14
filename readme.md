@@ -2,6 +2,8 @@
 
 A powerful Alfred workflow that lets you post to Bluesky directly from your Mac. Simple, fast, and secure.
 
+[Download Alfred Bluesky Workflow]()
+
 ![](https://i.imgur.com/RdpaNQr.png)
 
 ## Features

@@ -10,7 +10,7 @@ yarn-debug.log
 yarn-error.log
 
 # Alfred workflow
-*.alfredworkflow
+!*.alfredworkflow
 
 # Environment
 .env
