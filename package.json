@@ -1,0 +1,20 @@
+{
+  "name": "alfred-bluesky",
+  "version": "1.0.0",
+  "description": "Alfred workflow for posting to Bluesky",
+  "main": "src/post.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "zip -r alfred-bluesky.alfredworkflow . -x \"*.git*\" -x \".github/*\" -x \"*.DS_Store\" -x \"node_modules/*\" -x \"demo/*\" -x \"*.md\" -x \"package-lock.json\" -x \"package.json\" -x \".gitignore\""
+  },
+  "keywords": [
+    "alfred",
+    "workflow",
+    "bluesky",
+    "social"
+  ],
+  "author": "Dele Tosh",
+  "license": "MIT",
+  "dependencies": {
+  }
+}

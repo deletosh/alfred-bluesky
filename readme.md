@@ -7,7 +7,7 @@ A powerful Alfred workflow that lets you post to Bluesky directly from your Mac.
 ## Features
 
 - 🚀 Post to Bluesky instantly from Alfred
-- 🔒 Secure credential management with environment variables or local storage
+- 🔒 Secure credential management through Alfred's configuration
 - 🔔 Real-time posting feedback
 - ⚡ Fast and lightweight
 - 🛠️ Easy to set up and configure
@@ -34,36 +34,16 @@ A powerful Alfred workflow that lets you post to Bluesky directly from your Mac.
 4. Name it "Alfred" (or whatever you prefer)
 5. Copy the generated password (you'll need it in the next step)
 
-### Step 2: Configure Credentials
+### Step 2: Configure the Workflow
 
-You have two options for setting up your credentials:
-
-#### Option A: Environment Variables (Recommended)
-
-1. In Alfred, go to the workflows section
+1. In Alfred, go to the Workflows section
 2. Select the Bluesky workflow
-3. Click the [𝓧] button in the top-right corner
-4. Add these environment variables:
-   - Name: `BLUESKY_IDENTIFIER` 
-   - Value: Your Bluesky handle (e.g., `you.bsky.social`) or email
-   
-   - Name: `BLUESKY_APP_PASSWORD`
-   - Value: The app password you created in Step 1
+3. Click "Configure Workflow..." below the workflow name
+4. Fill in your credentials:
+   - **Username or email**: Your Bluesky handle (e.g., `you.bsky.social`) or email
+   - **App Password**: The app password you created in Step 1 (Note: This is not your login password)
 
-#### Option B: Setup Script
-
-1. Open Terminal
-2. Navigate to the workflow directory:
-   ```bash
-   cd ~/Library/Application\ Support/Alfred/Alfred.alfredpreferences/workflows/[workflow-id]
-   ```
-3. Run the setup script:
-   ```bash
-   node setup.js
-   ```
-4. Follow the prompts to enter your:
-   - Bluesky identifier (handle or email)
-   - App password
+Both fields are required and must be filled in for the workflow to function properly.
 
 ## Usage
 
@@ -83,14 +63,14 @@ You have two options for setting up your credentials:
 - Install Node.js from https://nodejs.org
 
 **Authentication failed**
-- Check if your credentials are correct
+- Check if your credentials are correct in the workflow configuration
 - Verify your app password is still valid in Bluesky settings
-- Try regenerating your app password
+- Try regenerating your app password and updating it in Alfred
 
 **Posts not appearing**
 - Check the Bluesky website to verify the post
 - Make sure you're connected to the internet
-- Try re-entering your credentials
+- Check your credentials in the workflow configuration
 
 **Having node issues**
 - See: https://askubuntu.com/a/1291470
@@ -109,9 +89,7 @@ If you run into issues:
 
 - Never share your app password
 - The workflow only communicates with Bluesky's official API
-- Credentials are stored securely in:
-  - Environment variables (Option A)
-  - Local file system (Option B) at `~/.bluesky-credentials.json`
+- Credentials are stored securely in Alfred's workflow configuration
 - Only uses app passwords, never your main Bluesky password
 
 ## Contributing
