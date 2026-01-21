@@ -2,9 +2,9 @@
 
 A powerful Alfred workflow that lets you post to Bluesky directly from your Mac. Simple, fast, and secure.
 
-[Download Alfred Bluesky Workflow]()
+[Download Latest Release](https://github.com/deletosh/alfred-bluesky/releases/latest)
 
-![](https://i.imgur.com/RdpaNQr.png)
+![Demo](demo/demo.gif)
 
 ## Features
 
@@ -38,12 +38,12 @@ A powerful Alfred workflow that lets you post to Bluesky directly from your Mac.
 
 ### Step 2: Configure the Workflow
 
-1. In Alfred, go to the Workflows section
-2. Select the Bluesky workflow
-3. Click "Configure Workflow..." below the workflow name
+1. In Alfred, go to Preferences → Workflows
+2. Select the "Bluesky" workflow from the list
+3. Click the "Configure Workflow..." button (top-right corner, [𝓧] icon)
 4. Fill in your credentials:
-   - **Username or email**: Your Bluesky handle (e.g., `you.bsky.social`) or email
-   - **App Password**: The app password you created in Step 1 (Note: This is not your login password)
+   - **Username or email**: Your Bluesky handle (e.g., `yourname.bsky.social`) or email address
+   - **App Password**: The app password you created in Step 1 (**NOT** your login password)
 
 Both fields are required and must be filled in for the workflow to function properly.
 
@@ -80,7 +80,7 @@ Both fields are required and must be filled in for the workflow to function prop
 ### Getting Help
 
 If you run into issues:
-1. Check existing [GitHub Issues](https://github.com/yourusername/alfred-bluesky/issues)
+1. Check existing [GitHub Issues](https://github.com/deletosh/alfred-bluesky/issues)
 2. Create a new issue with:
    - Description of the problem
    - Steps to reproduce
@@ -113,26 +113,63 @@ Contributions are welcome! Here's how:
    ```
 5. Open a Pull Request
 
+## Testing the Workflow
+
+### Testing Locally (Before Distribution)
+
+1. Double-click the `alfred-bluesky.alfredworkflow` file in this directory
+2. Alfred will prompt you to install or update the workflow
+3. Configure your credentials (see Setup → Step 2 above)
+4. Open Alfred (⌘ Space) and type:
+   ```
+   bsky Test post from Alfred!
+   ```
+5. Press Enter and check your Bluesky profile to verify the post appears
+
+### Manual Testing Without Installing
+
+You can test the script directly from the command line:
+
+```bash
+# Set your credentials as environment variables
+export BLUESKY_IDENTIFIER="yourname.bsky.social"
+export BLUESKY_APP_PASSWORD="your-app-password"
+
+# Test the script filter (shows what Alfred would display)
+node src/post.js "Test message"
+
+# Test actual posting
+export POSTING=true
+node src/post.js "Test message"
+```
+
 ## Building From Source
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/alfred-bluesky.git
+   git clone https://github.com/deletosh/alfred-bluesky.git
    cd alfred-bluesky
    ```
 
-2. Package the workflow:
+2. Build the workflow:
    ```bash
-   zip -r ../alfred-bluesky.alfredworkflow . -x "*.git*" -x "*.DS_Store"
+   npm run build
    ```
 
+   This creates `alfred-bluesky.alfredworkflow` with all necessary files.
+
 ## Version History
+
+- **1.1.0** (2026-01-21)
+  - Fixed hardcoded paths for proper distribution
+  - Updated to use Alfred's workflow configuration for credentials
+  - Fixed repo identifier to use DID from authentication response
+  - Improved build process for reliable packaging
+  - Updated for Alfred 5 compatibility
 
 - **1.0.0** (2024-01-30)
   - Initial release
   - Basic posting functionality
-  - Environment variables support
-  - Setup script option
 
 ## License
 

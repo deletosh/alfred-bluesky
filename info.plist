@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.deletosh.alfred-bluesky</string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>1C29AABC-B965-4605-BB5D-7711CB0629BA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E06B39E2-4AA0-4FEF-935D-4142037E2634</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E06B39E2-4AA0-4FEF-935D-4142037E2634</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A7328EB1-64ED-4607-857E-DF9588DD14AC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Dele Tosh</string>
+	<key>description</key>
+	<string>Post directly to Bluesky from Alfred with this simple, efficient workflow.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Bluesky</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>post.js</string>
+				<key>type</key>
+				<integer>8</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>E06B39E2-4AA0-4FEF-935D-4142037E2634</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>bsky</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>post.js</string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Write a Bluesky post</string>
+				<key>type</key>
+				<integer>8</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>1C29AABC-B965-4605-BB5D-7711CB0629BA</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Posted to Bluesky</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>A7328EB1-64ED-4607-857E-DF9588DD14AC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Alfred Bluesky Workflow
+
+Post to Bluesky directly from Alfred with a simple command.
+
+## Requirements
+
+- Alfred Powerpack
+- Node.js (LTS version recommended)
+
+## Setup
+
+1. Create a Bluesky App Password:
+   - Go to Bluesky Settings → App Passwords
+   - Create new App Password
+   - Copy the password
+
+2. Configure in Alfred:
+   - Open Alfred Preferences → Workflows
+   - Select Bluesky workflow
+   - Click "Configure Workflow..." button (top-right, [𝓧] icon)
+   - Fill in:
+     - **Username or email**: Your Bluesky handle (e.g., you.bsky.social) or email
+     - **App Password**: Your App Password from step 1
+
+## Usage
+
+1. Open Alfred (⌘ Space)
+2. Type `bsky` followed by your post
+3. Press Enter to post
+
+Example:
+```
+bsky Hello world! 🚀
+```
+
+## Security Note
+
+Always use an App Password, never your main Bluesky password.
+
+---
+
+[GitHub Repository](https://github.com/deletosh/alfred-bluesky)</string>
+	<key>uidata</key>
+	<dict>
+		<key>1C29AABC-B965-4605-BB5D-7711CB0629BA</key>
+		<dict>
+			<key>xpos</key>
+			<real>45</real>
+			<key>ypos</key>
+			<real>155</real>
+		</dict>
+		<key>A7328EB1-64ED-4607-857E-DF9588DD14AC</key>
+		<dict>
+			<key>xpos</key>
+			<real>580</real>
+			<key>ypos</key>
+			<real>285</real>
+		</dict>
+		<key>E06B39E2-4AA0-4FEF-935D-4142037E2634</key>
+		<dict>
+			<key>xpos</key>
+			<real>290</real>
+			<key>ypos</key>
+			<real>155</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>you.bsky.social</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Your Bluesky handle or email address</string>
+			<key>label</key>
+			<string>Username or email</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>BLUESKY_IDENTIFIER</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>abcd-1234-wxyz-7890</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>NOT your login password - create this in Bluesky Settings → App Passwords</string>
+			<key>label</key>
+			<string>App Password</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>BLUESKY_APP_PASSWORD</string>
+		</dict>
+	</array>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.1.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/deletosh/alfred-bluesky</string>
+</dict>
+</plist>

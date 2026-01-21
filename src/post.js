@@ -8,28 +8,21 @@ const os = require('os');
 class BlueskyClient {
     constructor() {
         this.service = 'https://bsky.social';
-        this.credentialsPath = path.join(os.homedir(), '.bluesky-credentials.json');
-        this.credentials = this.loadCredentials();
+        this.identifier = process.env.BLUESKY_IDENTIFIER;
+        this.appPassword = process.env.BLUESKY_APP_PASSWORD;
         this.authToken = null;
-    }
-
-    loadCredentials() {
-        try {
-            return JSON.parse(fs.readFileSync(this.credentialsPath, 'utf8'));
-        } catch (error) {
-            return null;
-        }
+        this.did = null;
     }
 
     async login() {
-        if (!this.credentials) {
-            throw new Error('No credentials found. Please run setup first.');
+        if (!this.identifier || !this.appPassword) {
+            throw new Error('Please configure your Bluesky credentials in Alfred workflow settings. Identifier: ' + (this.identifier ? 'set' : 'NOT SET') + ', Password: ' + (this.appPassword ? 'set' : 'NOT SET'));
         }
 
         return new Promise((resolve, reject) => {
             const data = JSON.stringify({
-                identifier: this.credentials.identifier,
-                password: this.credentials.appPassword
+                identifier: this.identifier.trim(),
+                password: this.appPassword.trim()
             });
 
             const options = {
@@ -53,6 +46,7 @@ class BlueskyClient {
                     if (res.statusCode === 200) {
                         const response = JSON.parse(responseData);
                         this.authToken = response.accessJwt;
+                        this.did = response.did;
                         resolve(true);
                     } else {
                         reject(new Error(`Authentication failed: ${responseData}`));
@@ -76,7 +70,7 @@ class BlueskyClient {
 
         return new Promise((resolve, reject) => {
             const postData = {
-                repo: this.credentials.identifier,
+                repo: this.did,
                 collection: 'app.bsky.feed.post',
                 record: {
                     $type: 'app.bsky.feed.post',
